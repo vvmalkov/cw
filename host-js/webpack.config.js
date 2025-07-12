@@ -6,7 +6,7 @@ module.exports = {
     entry: "./src/bootstrap.js",
     mode: "development",
     devServer: {
-        port: 3000
+        port: 3001
     },
     output: {
         publicPath: "auto"
