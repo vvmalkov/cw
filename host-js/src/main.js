@@ -1,12 +1,15 @@
 const { renderLoginForm } = require("./auth");
+const { renderRecordTable } = require("./records");
 
 const app = document.getElementById("app");
+const recordsTable = document.getElementById("recordsTable");
 
 function init() {
   const token = localStorage.getItem('token');
 
   if (!token) {
     renderLoginForm(app, onLoginSuccess);
+    renderRecordTable(recordsTable);
   } else {
     showMainMenu();
   }
