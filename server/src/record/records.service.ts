@@ -10,7 +10,14 @@ export class RecordsService {
   }
 
   addRecord(record: Record) {
-    this.records.push(record);
+    const existingRecordIndex = this.records.findIndex((rec) => rec.name === record.name)
+    if (existingRecordIndex >= 0){
+      if (record.score > this.records[existingRecordIndex].score){
+        this.records[existingRecordIndex] = record;
+      }
+    } else {
+      this.records.push(record);
+    }
     this.records.sort((a, b) => b.score - a.score);
     return { success: true };
   }

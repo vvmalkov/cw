@@ -11,3 +11,10 @@ export async function apiLogin(name) {
   if (!res.ok) throw new Error('Login failed');
   return res.json(); // { token }
 }
+
+export async function getRecords() {
+    const response = await fetch(`${API_URL}/records`);
+    console.log(response);
+    if (!response.ok) throw new Error('Get data failed');
+    return response.json();
+}

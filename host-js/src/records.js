@@ -1,5 +1,20 @@
-export function renderRecordTable(container) {
-  container.innerHTML = `<div class="card p-4 shadow-sm w-50 mx-auto mt-5">
+import { getRecords } from "./api";
+
+export async function fetchRecord() {
+    try {
+        const records = await getRecords();
+        console.log(records,"!")
+        return records;
+    } catch (error) {
+        console.log(`error: ${error}`);
+        //return [];
+    }
+}
+
+export async function renderRecordTable(container) {
+    const records = await fetchRecord();
+    //const records = (await fetchRecord()) || [];
+    container.innerHTML = `<div class="card p-4 shadow-sm w-50 mx-auto mt-5">
         <h2 class="mb-3 text-center">Record table</h2>
         <table class="table">
             <thead>
@@ -10,31 +25,13 @@ export function renderRecordTable(container) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Dasha</td>
-                    <td>150</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Masha</td>
-                    <td>142</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Misha</td>
-                    <td>138</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Sasha</td>
-                    <td>126</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Pasha</td>
-                    <td>115</td>
-                </tr>
+                ${(records || []).map((record, index) => `
+                    <tr>
+                        <th scope="row">${index + 1}</th>
+                        <td>${record.name}</td>
+                        <td>${record.score}</td>
+                    </tr>
+                `)}
             </tbody>
         </table>
     </div>
