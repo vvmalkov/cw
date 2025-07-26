@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklevel1_react=self.webpackChunklevel1_react||[]).push([[50],{50:(e,l,t)=>{t.r(l),t.d(l,{default:()=>n});var r=t(212),a=t.n(r);function n(){return a().createElement(a().Fragment,null,"level1-react")}}}]);

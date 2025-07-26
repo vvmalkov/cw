@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklevel1_react=self.webpackChunklevel1_react||[]).push([[97],{944:(e,t,l)=>{var n=l(212),r=l.n(n);function c(){return r().createElement(r().Fragment,null,"level1-react")}(0,l(338).createRoot)(document.getElementById("root")).render(r().createElement(c,null))}}]);
